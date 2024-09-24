@@ -1,5 +1,5 @@
 # Introduction
-Lets take a simple example of generating a Python function that can accept a list of numbers and a threshold float value as inputs. It must return boolean True of any 2 numbers in list are closer than the threshold value. If not, it should return a boolean False.
+Lets take a simple example of generating a Python function that can accept a list of numbers and a threshold float value as inputs. It must return boolean True if any 2 numbers in list are closer than the threshold value. If not, it should return a boolean False.
 
 Rather simple. Lets start there.
 # Code that works
@@ -36,7 +36,7 @@ prompt = """generate python code that accepts a list of numbers and a threshold 
             It returns boolean True if any 2 numbers in list are closer than the threshold value. 
             If not it returns a boolean False"""
 ```
-Hope you will agree that the above is a decent prompt that explains what I want exactly from the LLM. Now lets try this on open ai gpt 3.5 model.
+Hope you will agree that the above is a decent prompt that explains what I want exactly from the LLM. Now lets try this on a openai gpt 3.5 model.
 ```
 import openai
 from dotenv import load_dotenv
