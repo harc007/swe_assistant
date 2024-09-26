@@ -74,6 +74,7 @@ Following are steps to be done from now:
 1. The idea  is that we pass the 'prompt' from the dictionary to the LLM we want to evaluate
 2. Get the code generated from the LLM. Hopefully, string generated is the code that needs to be put in under the function defined within 'prompt'
 3.  Once that is done, we can execute the unit tests as defined within the 'test' key in above dictionary. 
+
 Let us try doing that by ourselves using the OpenAI gpt-3.5 model.
 
 ```
@@ -161,7 +162,7 @@ check(below_zero)
 # Evaluation Metric
 The evaluation metric calculated above is pass@1. That is because we have generated one piece of code from the LLM and have identified how many are correct. This can be generalized to pass@k. This is where we generate multiple answers from the same LLM for the same human-eval problem and find out how many pass the unit test. The formula for pass@k is 1 - {C(n-c, k)/C(n, k)} where C is number of combinations, n is total number of code pieces generated, c is number of correct code pieces, k is the number of code generated per prompt. The above is valid when n-c > k. Else pass@k is 1.
 # Human-Eval leaderboard
-![alt text](../data/he_lb_20240926.JPG)
+![alt text](https://github.com/harc007/swe_assistant/tree/main/data/he_lb_20240926.JPG)
 The above plot shows that pass@1 scores have breached the 99% mark by the O1-mini models. It was around 32% in 2021. This is incredible progress in 2-3 years.
 # Conclusion
 In this blog, we saw a baseline dataset that is used widely to report on code generation capabilities of LLMs. We saw how it is structured and how to use it on a LLM of our choice. We also saw the evaluation metric used to report numbers. The plot above also shows the tremendous empirical improvement in code generation capabilities for the Human-Eval kind of problem statements over the last 2-3 years. Which brings us to the next question. Given that we have hit 99%+ in Human-Eval, is this dataset of any significance moving forward? Until next time, sleep well. :)
