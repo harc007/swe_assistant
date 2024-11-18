@@ -1,14 +1,14 @@
 # Introduction
-In the previous post, we saw how popular HumanEval dataset has become as a benchmark for evaluating code generating capabilities of LLMs. But, we also saw that the market has started producing LLMs that easily have a pass@1 metric of over 99% which has rendered the HumanEval dataset redundant. What next then?
+In the previous [post](https://harc007.github.io/swe_assistant/2024/09/26/Human_Eval_Baseline.html), we saw how popular HumanEval dataset has become as a benchmark for evaluating code generating capabilities of LLMs. But, we also saw that the market has started producing LLMs that easily have a pass@1 metric of over 99% which has rendered the HumanEval dataset redundant. What next then?
 # The Next Generation of HumanEval
 The reason why the pass@1 metric is so high on the HumanEval dataset is because the tasks are algorithm-oriented whereas the real software development often involves usage of diverse libraries and calling functions defined in the libraries. Enter BigCodeBench - the next generation of HumanEval. BigCodeBench contains 1140 function-level tasks to challenge LLMs to follow instructions and compose multiple function calls as tools from 139 libraries. Each task has 5-6 test cases.
-# How to load dataset
-Below is code to load dataset from huggingface datasets.
+# Load the dataset
+Below is the code to load dataset from huggingface datasets library.
 ```
 from datasets import load_dataset
 bcb_data = load_dataset('bigcode/bigcodebench')
 ```
-The dataset dictionary consists of 4 versions, we can just focus on latest version v0.1.2. Now, each of the tasks have a complete_prompt, instruct_prompt, test as the important keys. 
+The dataset dictionary consists of 4 versions. We can just focus on latest version v0.1.2. Now, each of the task haS a complete_prompt, instruct_prompt, test as the important keys. 
 The complete_prompt is the code prompt where the LLM is expected to fill in the blanks with code. Whereas, the instruct_prompt is more of a conversational style English content that requests for the entire code to be written. The test is the test cases for that particular task. Lets look at one of the example in detail.
 # Dataset detail
 For the first task, the complete_prompt looks as shown below
@@ -113,8 +113,8 @@ class TestCases(unittest.TestCase):
             result2 = task_func([1, 2, 4])
         self.assertNotEqual(result1, result2)
 ```
-# Running above on LLM
-Let's now try to run the above model on gpt3.5. Code to that is as shown below
+# LLM Response
+Let's now try to run the above query on gpt3.5. Below is the code to do that:
 ```
 import openai
 model = 'gpt-3.5-turbo-instruct-0914'
@@ -161,6 +161,6 @@ def task_func(numbers=list(range(1, 11))):
 Looks like the correct code has been generated. Sound logic. But the above code throws an error. A very simple error. While shuffling the permutation, it needs to convert the 'permutation' to 'list(permutation)'. If that change is done, the code generated passes through all tests.
 # BigCodeBench benchmarking
 ![alt text](/swe_assistant/docs/assets/bcb_lb_20241112.JPG "Leaderboard")
-The above snapshot shows the leaderboard on the begcodebench benchmarking of LLMs and it can be seen that the best model is GPT4 with a pass@1 of 32.1%. There seems to be a lot of room for improvement in the tasks.
+The above snapshot shows the leaderboard on the bigcodebench benchmarking of LLMs and it can be seen that the best model is GPT4 with a pass@1 of 32.1%. There seems to be a lot of room for improvement in the LLM based systems on this dataset.
 # Conclusion
-In the single example, we saw, it was not a case of the LLM being unable to understand the problem or solve for it. It got it wrong in minutae like converting a object of type itertools to a list. The question is if that is the case across examples. If that is so, can we add guardrails to LLMs to make it a little better and help it avoid simple errors? We definitely now have a dataset where there is huge room to improve. That is the biggest takeaway from this post. We made huge ground today. Until next time, get some rest :)
+In the single example we saw, it was not a case of the LLM being unable to understand the problem or solve for it. It got it wrong in minutae like converting a object of type itertools to a list. The first question is to find if that is the case across examples. If that is so, can we add guardrails to LLMs to make it a little better and help it avoid simple errors? We definitely now have a dataset where LLM bases systems have huge room to improve. That is the biggest takeaway from this post. We made huge ground today. Until next time, get some rest :)
