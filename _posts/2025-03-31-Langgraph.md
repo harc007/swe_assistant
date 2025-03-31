@@ -3,6 +3,7 @@ In the previous [post](https://harc007.github.io/swe_assistant/2025/03/19/Agenti
 
 # Architecture
 ![alt text](/swe_assistant/docs/assets/lg01.JPG "agent_representation")
+
 As you can see we want to first check if the input task is a coding task. If not, we do not want this agent to answer this question. And if it is, we want the LLM to try and answer it.
 ```
 from typing import Annotated
