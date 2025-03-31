@@ -1,7 +1,7 @@
 # Introduction
-In the previous [post](https://harc007.github.io/swe_assistant/2024/11/12/BigCodeBench.html), we saw how BigCodeBench is a better dataset for evaluating code assistants. We also saw how prompt engineering results, though logically sound, have some simple syntax errors that need to be resolved. How do we move from prompt engineering to building such agents? Welcome to the world of Agentic AI.
+In the previous [post](https://harc007.github.io/swe_assistant/2024/11/12/BigCodeBench.html), we saw how BigCodeBench is a better dataset for evaluating code assistants. We also saw how prompt engineering results, though logically sound, have some simple syntax errors that need to be resolved. How do we move from prompt engineering to building agents that can break down the task to smaller pieces and solve the whole problem in a rigorous step-by-step fashion so that errors are reduced? Welcome to the world of Agentic AI.
 # Agentic AI
-Our goal is now to build a coding agent that can generate code, check for errors, test itself ad make edits to code if it fails. This process is very similar to how most programmers code. For this purpose, we will use Langgraph - a low-level orchestration framework for building controllable agents. For this post, let's begin by understanding and building the 'hello world' of the langgraph agent. This post will not evaluate the agent on bigcodebench as this post will build a agentic wrapper around prompt engineering. We will definitely build a more comprehensive agent in the next few posts and test it on bigcodebench.
+Our goal is now to build a coding agent that can generate code, check for errors, test itself ad make edits to code if it fails. This process is very similar to how most programmers code. For this purpose, we will use Langgraph - a low-level orchestration framework for building controllable agents. For this post, let's begin by understanding and building the 'hello world' of the langgraph agent. This post will not evaluate the agent on bigcodebench and will only build an agentic wrapper around prompt engineering. We will definitely build a more comprehensive agent in the next few posts and test it on bigcodebench.
 # Basic Codebot
 ## Graph
 We'll first create a basic codebot using langgraph. This codebot will respond directly to user messages. Start by creating a *StateGraph*. A StateGraph object defines the structure of our codebot as a *state machine*. We'll add *nodes* to represent the agent to specify how the bot should transition between these functions.
@@ -67,11 +67,11 @@ while True:
         break
     stream_graph_updates(user_input)
 ```
-When I passed input as 'create a function with inputs as name and place which are string variables. The function should return 'Hi <name>, I love <place>', the output was as follows
+When I passed the user input as 'create a function with input params as name and place which are string variables. The function should return 'Hi {name}, I love {place}', the output was as follows
 ```
 Assistant: 
 def greet(name, place):
     return f"Hi {name}, I love your {place}"
 ```
 # Conclusion
-In this post, we really have put an agentic wrapper around an LLM. This post also introduces concept of *nodes* and *edges* integral to Langgraph which underpins the orchestration of the agent. We will add more complexity to this coding agent in future posts. Until then, catch a breath!
+In this post, we really have put an agentic wrapper around an LLM. This post also introduces concept of *nodes* and *edges* integral to Langgraph which underpins the orchestration of the agent. We will add more complexity to this coding agent in future posts. Until then, catch your breath!
