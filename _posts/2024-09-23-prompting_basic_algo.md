@@ -1,3 +1,9 @@
+yaml
+---
+layout: post
+title: "Prompting"
+categories: software generation
+---
 # Introduction
 Lets take a simple example of generating a Python function that can accept a list of numbers and a threshold float value as inputs. It must return boolean True if any 2 numbers in list are closer than the threshold value. If not, it should return a boolean False.
 
