@@ -1,4 +1,3 @@
-yaml
 ---
 layout: post
 title: "Langgraph"
