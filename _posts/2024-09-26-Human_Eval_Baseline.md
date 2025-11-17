@@ -1,3 +1,9 @@
+yaml
+---
+layout: post
+title: "Human_Eval_Baseline"
+categories: software generation
+---
 # Introduction
 In the previous [post](https://harc007.github.io/swe_assistant/2024/09/23/prompting_basic_algo.html), we saw one example of writing a prompt and generating python code. But, we can't decide to use a specific LLM based on one example right? Do we have a standard dataset of prompts and unit tests that we would like to run and evaluate various LLMs at their code generation capabilities? Answer, of course is yes we do have that. The most commonly used baseline dataset is called the human-eval dataset. In this post, we will deep dive into the structure of the dataset, how it is used, how the code generated is evaluated, what is the evaluation metric that is used and how are the LLMs performing on this dataset as of today. Uffff! Lots to cover. Lets jump right in!
 # Human-Eval
