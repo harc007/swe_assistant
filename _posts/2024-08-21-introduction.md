@@ -1,3 +1,9 @@
+yaml
+---
+layout: post
+title: "Introduction"
+categories: software generation
+---
 # Introduction
 LLMs have been acclaimed as the technology that can drive automation to the next paradigm and promises to transform every business. The last couple of decades have seen software development automate most basic tasks. Now, we are at a landmark juncture where we might be ready to automate the automator (software development) thanks to increasing appetite of LLMs to become better at cognitive tasks.
 ## What do I want to build here
