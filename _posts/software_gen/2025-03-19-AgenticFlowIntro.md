@@ -1,3 +1,9 @@
+yaml
+---
+layout: post
+title: "Agentic Flow"
+categories: software generation
+---
 # Introduction
 In the previous [post](https://harc007.github.io/swe_assistant/2024/11/12/BigCodeBench.html), we saw how BigCodeBench is a better dataset for evaluating code assistants. We also saw how prompt engineering results, though logically sound, have some simple syntax errors that need to be resolved. How do we move from prompt engineering to building agents that can break down the task to smaller pieces and solve the whole problem in a rigorous step-by-step fashion so that errors are reduced? Welcome to the world of Agentic AI.
 # Agentic AI

@@ -1,3 +1,9 @@
+yaml
+---
+layout: post
+title: "Langgraph"
+categories: software generation
+---
 # Introduction
 In the previous [post](https://harc007.github.io/swe_assistant/2025/03/19/AgenticFlowIntro.html), we saw building blocks of a langgraph agent which are nodes and edges. Today, we are going to build on that further and create a slightly more complex agent which can filter out tasks that are not a coding task. If it is a coding task, it goes on to generate the code. Again, this is just an extension to the previous post. The idea of making this a separate post is to understand how to add multiple sub-agents to the overall agent.
 

@@ -1,3 +1,9 @@
+yaml
+---
+layout: post
+title: "BigCodeBench"
+categories: software generation
+---
 # Introduction
 In the previous [post](https://harc007.github.io/swe_assistant/2024/09/26/Human_Eval_Baseline.html), we saw how popular HumanEval dataset has become as a benchmark for evaluating code generating capabilities of LLMs. But, we also saw that the market has started producing LLMs that easily have a pass@1 metric of over 99% which has rendered the HumanEval dataset redundant. What next then?
 # The Next Generation of HumanEval
