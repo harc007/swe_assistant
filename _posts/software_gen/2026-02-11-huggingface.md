@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Prompting"
+title: "HuggingFace"
 categories: Random Exps
 ---
 # Introduction
