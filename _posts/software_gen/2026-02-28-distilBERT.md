@@ -15,9 +15,9 @@ Here are the main types and variations of DistilBERT models available on hugging
 2. distilbert-base-cased - (Less common) A version that retains capitalization, useful for tasks where case matters (e.g., Named Entity Recognition).
 3. distilbert-base-multilingual-cased - (DistilmBERT) A multilingual version trained on Wikipedia in 104 different languages, supporting cross-lingual tasks.
 4. Task-Specific Fine-tuned Models - While the above are base models, DistilBERT is frequently fine-tuned for specific tasks via the Hugging Face library, such as:
-  a. distilbert-base-uncased-finetuned-sst-2-english: Optimized for sentiment analysis.
-  b. DistilBertForQuestionAnswering: Specifically designed for QA tasks.
-  c. DistilBertForTokenClassification: Used for NER or POS tagging.
+  1. distilbert-base-uncased-finetuned-sst-2-english: Optimized for sentiment analysis.
+  2. DistilBertForQuestionAnswering: Specifically designed for QA tasks.
+  3. DistilBertForTokenClassification: Used for NER or POS tagging.
 
 # Load DistilBERT
 Let's focus on the standard model which is the distilbert-base-uncased. This model has 66 million parameters. In terms of LLM sizes, estimated to be running into trillions of parameters as of today, the distilbert is really a small model. For estimating what it takes to load the model in your RAM, it's good to remember that a 1 billion parameter model at full precision (float-32) takes about 4GB. So a 66M model will be ~250MB to load. For inference, you need roughly about 25% extra RAM/VRAM for this model. This is because of something called KV cache which is used for faster inference. We wil not get into it today. Similarly if we were to train this model which is our goal in subsequent posts, we will need about 5-6x the RAM/VRAM to load the model. Remember that all these are rule of thumb extrapolations to get an idea of RAM usage for a model and not precise numbers. Going with this extrapolation, we see that a local machine with about 16G RAM should be sufficient to load, run inference on and train this model. Let's look at the code to load the model - 
